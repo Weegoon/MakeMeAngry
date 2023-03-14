@@ -1,0 +1,144 @@
+
+@font-face {
+font-family: josephReg;
+src: url("./Font/JosefinSans-Regular.ttf");
+}
+
+@font-face {
+font-family: amitaBold;
+src: url("./Font/amita-bold.ttf");
+}
+
+@font-face {
+font-family: courgette;
+src: url("./Font/Courgette-Regular.ttf");
+}
+
+/* * {
+font-family: josephReg;
+} */
+
+
+html,
+body {
+background: #000;
+color: #fff;
+overflow: hidden;
+touch-action: none;
+-ms-touch-action: none;
+}
+
+canvas {
+touch-action-delay: none;
+touch-action: none;
+-ms-touch-action: none;
+}
+
+#conatiner {
+height: 100%;
+width: 100%;
+}
+
+.dropdown-backdrop {
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+/* background-color: rgba(0, 0, 0, 1); */
+/* z-index: 990; */
+}
+
+.center {
+width: 250px;
+}
+
+.res__mob {
+transform: scale(0.5);
+}
+
+
+.progress-bar {
+    background-color: #0d0a18;
+    width: 250px;
+    height: 25px;
+    box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.25),
+    0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    position: relative;
+    margin-top: 20px;
+}
+
+.progress-barnew {
+    background-color: orange;
+    width: 0%;
+    height: 25px;
+    box-shadow: 1px 0px 2px rgba(0, 0, 0, 0.25),
+    0px 1px 2px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    position: absolute;
+    overflow: hidden;
+}
+
+#progressBarImg{
+    width: 100%; 
+    height: 100%;
+}
+#loaderPage {
+    /* top: 24%; */
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1001;
+    background-color: #000;
+    position: absolute;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#loaderPageContent{
+    /* position: absolute; */
+    top: 24%;
+    margin-top: 10%;
+}
+
+#blankScreen {
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 1001;
+    background-color: #000;
+    position: absolute;
+}
+
+#div-gpt-ad-2{
+    display: flex;
+    justify-content: center;
+    transform: scale(0.8);
+    border: 6px solid rgb(255, 255, 255, 1);
+    border-radius: 12px;
+    bottom: 5px;
+    margin-top: 10%;
+    /* position: absolute; */
+
+  }
+
+@media screen and (orientation:landscape)
+{
+    #div-gpt-ad-2{
+        position: absolute;
+        top: 10%;
+        right: 12%;
+        overflow: auto;
+        margin-top: 0;
+        bottom: auto;
+    }
+
+    #loaderPageContent{
+        position: absolute;
+        top: 10%;
+        left:16%;
+        overflow: auto;
+    }
+}
