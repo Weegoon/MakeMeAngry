@@ -153,7 +153,26 @@
           alert(message);
         });
       };
-      document.body.appendChild(script);
+        document.body.appendChild(script);
+
+        // send analytics event
+        function gameEvent(eventName, extras) {
+            switch (eventName) {
+                case "game_start":
+                    sendCustomAnalyticsEvent("game_start", {});
+                    break;
+                case "game_end":
+                    sendCustomAnalyticsEvent("game_end", { level: parseInt(extras) });
+                    break;
+                case "game_level":
+                    sendCustomAnalyticsEvent("game_level", { level: parseInt(extras) });
+                    break;
+                case "game_replay":
+                    sendCustomAnalyticsEvent("game_replay", { level: parseInt(extras) });
+                    break;
+                default:
+            }
+        }
     </script>
 </body>
 </html>
