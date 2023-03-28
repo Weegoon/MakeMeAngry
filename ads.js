@@ -87,7 +87,7 @@ const rewardObj = {
     adUnitName: "Weegoon_MakeMeAngry_FsRewarded_Reward",
     placementName: "FsRewarded",
     pageName: 'Weegoon_MakeMeAngry',
-    categoryName: 'Weegoon’,
+    categoryName: 'Weegoon',
     containerID: '',
     height: '',
     width: '',
