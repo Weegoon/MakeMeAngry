@@ -1,4 +1,4 @@
-const gameInput = { gameName: 'MakeMeAngry', publisherName: 'Weegoon', surface: 'test'};
+const gameInput = { gameName: 'MakeMeAngry', publisherName: 'Weegoon'};
 
 $.getScript(
 
@@ -25,10 +25,10 @@ var isRewardGranted = false
 var isRewardedAdClosedByUser = false
 
 const LPMercObj = {
-    adUnitName: "Weegoon_MakeMeAngry",
-    pageName: 'MakeMeAngry',               //Game Name
-    categoryName: 'google',           //Publisher Name
-    placementName: 'Test_Banner',
+    adUnitName: "Weegoon_MakeMeAngry_Gameload_Bottom",
+    pageName: 'Weegoon_MakeMeAngry',               //Game Name
+    categoryName: 'Weegoon',           //Publisher Name
+    placementName: 'Gameload',
     containerID: "div-gpt-ad-2",            //Div Id for banner
     height: 250,
     width: 300,
@@ -37,10 +37,10 @@ const LPMercObj = {
     gpid: gpID,
 }
 const StickyObj = {
-    adUnitName: "Weegoon_MakeMeAngry",
-    pageName:'MakeMeAngry',                        //Game Name
-    categoryName: 'google',                   //Publisher Name       
-    placementName: 'Test_Banner',
+    adUnitName: "Weegoon_MakeMeAngry_StickyBanner_Bottom",
+    pageName:'Weegoon_MakeMeAngry',                        //Game Name
+    categoryName: 'Weegoon',                   //Publisher Name       
+    placementName: 'StickyBanner',
     containerID: "banner-ad",            //Div Id for banner
     height: 50,
     width: 320,
@@ -50,10 +50,10 @@ const StickyObj = {
 }
 
 const LBBannerObj = {
-    adUnitName: "Weegoon_MakeMeAngry",
-    pageName: 'MakeMeAngry',               //Game Name
-    categoryName: 'google',           //Publisher Name
-    placementName: 'Test_Banner',
+    adUnitName: "Weegoon_MakeMeAngry_LBBanner",
+    pageName: 'Weegoon_MakeMeAngry',               //Game Name
+    categoryName: 'Weegoon',           //Publisher Name
+    placementName: 'LBBanner',
     containerID: "div-gpt-ad-1",            //Div Id for banner
     height: 250,
     width: 300,
@@ -72,10 +72,10 @@ function failCb(reason) { }
 
 
 const replayObj = {
-    adUnitName: "Weegoon_MakeMeAngry",
-    placementName: "Test_Rewarded",
-    pageName: 'MakeMeAngry',
-    categoryName: 'google',
+    adUnitName: "Weegoon_MakeMeAngry_ReplayAds",
+    placementName: "ReplayAds",
+    pageName: 'Weegoon_MakeMeAngry',
+    categoryName: 'Weegoon',
     containerID: '',
     height: '',
     width: '',
@@ -84,10 +84,10 @@ const replayObj = {
     gpid: gpID,
 }
 const rewardObj = {
-    adUnitName: "Weegoon_MakeMeAngry",
-    placementName: "Test_Rewarded",
-    pageName: 'MakeMeAngry',
-    categoryName: 'google',
+    adUnitName: "Weegoon_MakeMeAngry_RewardAds",
+    placementName: "RewardAds",
+    pageName: 'Weegoon_MakeMeAngry',
+    categoryName: 'Weegoon',
     containerID: '',
     height: '',
     width: '',
