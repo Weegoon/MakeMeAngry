@@ -162,13 +162,13 @@
                     sendCustomAnalyticsEvent("game_start", {});
                     break;
                 case "game_end":
-                    sendCustomAnalyticsEvent("game_end", { level: parseInt(extras) });
+                    sendCustomAnalyticsEvent("game_end", { level: parseInt(extras), score: undefined, highScore: undefined });
                     break;
                 case "game_level":
                     sendCustomAnalyticsEvent("game_level", { level: parseInt(extras) });
                     break;
                 case "game_replay":
-                    sendCustomAnalyticsEvent("game_replay", { level: parseInt(extras) });
+                    sendCustomAnalyticsEvent("game_replay", { level: parseInt(extras), score: undefined, highScore: undefined });
                     break;
                 default:
             }
