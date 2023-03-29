@@ -138,9 +138,6 @@ function rewardedCallbacks(obj) {
 
     obj.adInstance?.registerCallback('onAdLoadSucceed', (data) => {
         console.log('onAdLoadSucceeded Rewarded CALLBACK', data);
-        if (obj.adUnitName === replayObj.adUnitName) {
-            is_replay_noFill = false
-        }
         if (obj.adUnitName === rewardObj.adUnitName) {
             is_rewarded_noFill = false
         }
@@ -150,9 +147,6 @@ function rewardedCallbacks(obj) {
 
     obj.adInstance?.registerCallback('onAdLoadFailed', (data) => {
         console.log('onAdLoadFailed Rewarded CALLBACK', data);
-        if (obj.adUnitName ===replayObj.adUnitName) {
-            is_replay_noFill = true
-        }
         if (obj.adUnitName === rewardObj.adUnitName) {
             is_rewarded_noFill = true
         }
@@ -197,6 +191,56 @@ function rewardedCallbacks(obj) {
 
 }
 
+function replayCallbacks(obj) {
+
+
+
+    obj.adInstance?.registerCallback('onAdLoadSucceed', (data) => {
+        console.log('onAdLoadSucceeded replay CALLBACK', data);
+        if (obj.adUnitName === replayObj.adUnitName) {
+            is_replay_noFill = false
+        }
+    });
+
+    obj.adInstance?.registerCallback('onAdLoadFailed', (data) => {
+        console.log('onAdLoadFailed replay CALLBACK', data);
+        if (obj.adUnitName === replayObj.adUnitName) {
+            is_replay_noFill = true
+        }
+    });
+
+    obj.adInstance?.registerCallback('onAdDisplayed', (data) => {
+        console.log('onAdDisplayed replay CALLBACK', data);
+        myGameInstance.SendMessage('ShowAds', 'MuteSoundAdsOpen');
+
+    });
+
+
+
+    obj.adInstance?.registerCallback('onAdClosed', (data) => {
+        console.log('onAdClosed replay CALLBACK', data);
+
+        runOnAdClosed();
+
+        myGameInstance.SendMessage('ShowAds', 'PlaySoundAdsClose');
+
+    });
+
+    obj.adInstance?.registerCallback('onAdClicked', (data) => {
+        console.log('onAdClicked replay CALLBACK', data);
+    });
+
+    //obj.adInstance?.registerCallback('onRewardsUnlocked', (data) => {
+    //    console.log('onRewardsUnlocked replay CALLBACK', data);
+
+    //    if (obj.adUnitName === rewardObj.adUnitName) {
+    //        isRewardGranted = true
+    //    }
+
+    //});
+
+}
+
 function runOnAdClosed() {
     window.focus();
 
@@ -204,7 +248,7 @@ function runOnAdClosed() {
 
         myGameInstance.SendMessage('ShowAds', 'OnInterstitialAdsClose');
         _triggerReason = ''
-        replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, rewardedCallbacks);
+        replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, replayCallbacks);
 
     } else if (_triggerReason === 'reward') {
         // If user close ad before reward
