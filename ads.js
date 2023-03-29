@@ -199,38 +199,36 @@ function rewardedCallbacks(obj) {
 
 function runOnAdClosed() {
     window.focus();
-    
+
     if (_triggerReason === 'replay') {
 
-    // call function for replay
-    _triggerReason = ''
-    //$('#playMore').css("display", "none");
-    
-    replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, rewardedCallbacks);
-
-    } else if (_triggerReason === 'reward') {                
-      // If user close ad before reward
-      if (!isRewardGranted && isRewardedAdClosedByUser) {
-        // call function for not earning reward (failure case)
-     
-      } else {
-
-    // call function for earned reward  (success case)
-      myGameInstance.SendMessage('ShowAds', 'OnRewardAdsClosed');
-
-      }
-
-      _triggerReason = '' 
-      rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
-
-    } 
-    else if (_triggerReason === 'interstitial') {
         myGameInstance.SendMessage('ShowAds', 'OnInterstitialAdsClose');
         _triggerReason = ''
-        rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
-    } 
+        replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, rewardedCallbacks);
 
-  }
+    } else if (_triggerReason === 'reward') {
+        // If user close ad before reward
+        if (!isRewardGranted && isRewardedAdClosedByUser) {
+            // call function for not earning reward (failure case)
+
+        } else {
+
+            // call function for earned reward  (success case)
+            myGameInstance.SendMessage('ShowAds', 'OnRewardAdsClosed');
+
+        }
+
+        _triggerReason = ''
+        rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
+
+    }
+    //else if (_triggerReason === 'interstitial') {
+    //    myGameInstance.SendMessage('ShowAds', 'OnInterstitialAdsClose');
+    //    _triggerReason = ''
+    //    replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, rewardedCallbacks);
+    //}
+
+}
 
 
   function replayEvent() { 
@@ -255,9 +253,9 @@ function loadInterstitial() {
 }
 
 function interstitialEvent(){
-    _triggerReason = 'interstitial'
-    if (!is_rewarded_noFill) {
-        window.GlanceGamingAdInterface.showRewarededAd(rewardInstance);
+    _triggerReason = 'replay'
+    if (!is_replay_noFill) {
+        window.GlanceGamingAdInterface.showRewarededAd(replayInstance);
     } else {
         runOnAdClosed();
     }
