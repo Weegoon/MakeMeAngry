@@ -64,7 +64,7 @@ const LBBannerObj = {
 
 function successCb() {
     console.log("set up lib success")
-    showBumperAd();
+    //showBumperAd();
 
 }
 function failCb(reason) { }
