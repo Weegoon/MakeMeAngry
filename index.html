@@ -1,45 +1,27 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+  <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity WebGL Player | MakeMeAngry</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-
-    <!--Base Properties-->
-    <script type="text/javascript" src="./jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"></script>
-
-    <script type="text/javascript" src="./gpid.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
-    <script type="text/javascript" src="./ads.js"></script>
-
-    <script type="text/javascript" src="./loadingPage.js"></script>
-    <link rel="stylesheet" href="./loadingPage.css">
-
-    <script type="text/javascript" src="./stickyBanner.js"></script>
-    <link rel="stylesheet" href="./stickyBanner.css">
-</head>
-<body>
-    <script>addLoader();</script>
+  </head>
+  <body>
     <div id="unity-container" class="unity-desktop">
-        <canvas id="unity-canvas" width=600 height=960></canvas>
-        <!--<div id="unity-loading-bar">
-            <div id="unity-logo"></div>
-            <div id="unity-progress-bar-empty">
-                <div id="unity-progress-bar-full"></div>
-            </div>
-        </div>-->
-        <div id="unity-warning"> </div>
-        <div id="unity-footer">
-            <div id="unity-webgl-logo"></div>
-            <div id="unity-fullscreen-button"></div>
-            <div id="unity-build-title">MakeMeAngry</div>
+      <canvas id="unity-canvas" width=600 height=960></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">MakeMeAngry</div>
+      </div>
     </div>
     <script>
       var container = document.querySelector("#unity-container");
@@ -74,11 +56,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Build_WebGL.loader.js";
+      var loaderUrl = buildUrl + "/Build_WebGL_Default.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Build_WebGL.data",
-        frameworkUrl: buildUrl + "/Build_WebGL.framework.js",
-        codeUrl: buildUrl + "/Build_WebGL.wasm",
+        dataUrl: buildUrl + "/Build_WebGL_Default.data",
+        frameworkUrl: buildUrl + "/Build_WebGL_Default.framework.js",
+        codeUrl: buildUrl + "/Build_WebGL_Default.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Weegoon",
         productName: "MakeMeAngry",
@@ -117,36 +99,15 @@
         canvas.style.height = "960px";
       }
 
-      //loadingBar.style.display = "block";
-      var myGameInstance = null;
+      loadingBar.style.display = "block";
+
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
         createUnityInstance(canvas, config, (progress) => {
-            //progressBarFull.style.width = 100 * progress + "%";
-            /*progressBar(100 * progress);*/
-            progressBar(100 * progress);
-
-            // if (progress == 1) {
-            //     sendCustomAnalyticsEvent("game_load", {});
-
-            //     setTimeout(() => {
-            //         StickyBannerInstance = window?.GlanceGamingAdInterface?.showStickyBannerAd(StickyObj, bannerCallbacks);
-            //         refreshStickyBannerAd();
-            //         //rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
-            //         //replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, replayCallbacks);
-            //     }, 1000)
-
-            // }
-
+          progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-          //loadingBar.style.display = "none";
-
-            myGameInstance = unityInstance;
-            //refreshStickyBannerAd();
-            //showBumperAd();
-            //rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
-
+          loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
           };
@@ -154,26 +115,7 @@
           alert(message);
         });
       };
-        document.body.appendChild(script);
-
-        // send analytics event
-        function gameEvent(eventName, extras) {
-            switch (eventName) {
-                case "game_start":
-                    sendCustomAnalyticsEvent("game_start", {});
-                    break;
-                case "game_end":
-                    sendCustomAnalyticsEvent("game_end", { level: parseInt(extras), score: undefined, highScore: undefined });
-                    break;
-                case "game_level":
-                    sendCustomAnalyticsEvent("game_level", { level: parseInt(extras) });
-                    break;
-                case "game_replay":
-                    sendCustomAnalyticsEvent("game_replay", { level: parseInt(extras), score: undefined, highScore: undefined });
-                    break;
-                default:
-            }
-        }
+      document.body.appendChild(script);
     </script>
-</body>
+  </body>
 </html>
