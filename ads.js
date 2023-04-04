@@ -1,4 +1,4 @@
-const gameInput = { gameName: 'MakeMeAngry', publisherName: 'Weegoon'};
+const gameInput = { gameName: 'MakeMeAngry', publisherName: 'Weegoon', surface: 'test'};
 
 $.getScript(
 
