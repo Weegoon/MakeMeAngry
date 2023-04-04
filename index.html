@@ -127,17 +127,17 @@
             /*progressBar(100 * progress);*/
             progressBar(100 * progress);
 
-            if (progress == 1) {
-                sendCustomAnalyticsEvent("game_load", {});
+            // if (progress == 1) {
+            //     sendCustomAnalyticsEvent("game_load", {});
 
-                setTimeout(() => {
-                    StickyBannerInstance = window?.GlanceGamingAdInterface?.showStickyBannerAd(StickyObj, bannerCallbacks);
-                    refreshStickyBannerAd();
-                    //rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
-                    //replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, replayCallbacks);
-                }, 1000)
+            //     setTimeout(() => {
+            //         StickyBannerInstance = window?.GlanceGamingAdInterface?.showStickyBannerAd(StickyObj, bannerCallbacks);
+            //         refreshStickyBannerAd();
+            //         //rewardInstance = window.GlanceGamingAdInterface.loadRewardedAd(rewardObj, rewardedCallbacks);
+            //         //replayInstance = window.GlanceGamingAdInterface.loadRewardedAd(replayObj, replayCallbacks);
+            //     }, 1000)
 
-            }
+            // }
 
         }).then((unityInstance) => {
           //loadingBar.style.display = "none";
