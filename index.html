@@ -171,6 +171,9 @@
                 case "game_replay":
                     sendCustomAnalyticsEvent("game_replay", { level: parseInt(extras), score: undefined, highScore: undefined });
                     break;
+                case "level_completed":
+                    sendCustomAnalyticsEvent("level_completed", { level: parseInt(extras) });
+                    break;
                 default:
             }
         }
